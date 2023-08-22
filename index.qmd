@@ -1,0 +1,261 @@
+---
+title: "Demysifying Latschev's Theorem"
+subtitle: Vietoris--Rips complexes for manifold reconstruction
+author: "<b>Sush Majhi</b>, George Washington University"
+format: 
+    revealjs:
+        slide-number: true
+        self-contained: true
+        incremental: true
+bibliography: references.bib
+---
+
+## Today's Agenda
+- The problem of shape reconstruction
+- Different reconstruction paradigms
+- Vietoris--Rips complexes
+- Theorems of Hausmann and Latschev
+- Demistifying Lastchev's theorem
+    - Jung's theorem on manifolds
+- Euclidean submanifold reconstruction
+- Question
+
+## The Problem of Shape Reconstruction {.smaller}
+
+- **Shape:** A *Shape* is modeled as a metric space $(M,d_M)$.
+
+    - general compact set
+
+    - metric graph
+
+    - for today, <span style="color:green">$M$ is a closed Riemannian manifold</span>.
+
+- **Sample:** A *finite* metric space $(X,d_X)$ *close* to $M$.
+
+    - small Hausdorff proximity if $M$ is a Euclidean submanifold and $X\subset\mathbb R^d$
+
+    - for today, <span style="color:green">small Gromov--Hausdorff distance</span>
+
+
+- **Goal:** Infer the topology of $M$ from $X$.
+
+    - Estimate only the betti numbers: number of connected components, cycles, voids, etc, of $M$.
+
+    - for today, <span style="color:green">construct a topological space $\widetilde{M}$ from $X$ to retain the topology of $M$, i.e., $M\simeq\widetilde{M}$</span>.
+
+## Vietoris--Rips Complex {.smaller}
+  - a metric space $(X,d_X)$
+  
+  - a scale $\beta>0$,
+  
+   - $\mathcal{R}_\beta(X)$ is an abstract simplicial complex such that
+   
+        - each subset $A\subset X$ of size $k$ with diameter at most $\epsilon$ is a $(k-1)$-simplex.
+
+. . .
+
+```{ojs}
+//| panel: sidebar
+
+viewof scale = Inputs.range([0, 300], {
+  step: 1,
+  value: 0,
+  label: tex`\beta`
+})
+viewof btn = Inputs.button("clear", {
+  value: null,
+  reduce: () => { V.length = 0; viewof scale.value = 0;viewof scale.dispatchEvent(new CustomEvent("input")); }
+})
+```
+
+```{ojs}
+V = [];
+{
+  const height = "300px";
+  const container = d3.create("div").style("position", "relative");
+  let svg = container
+    .append("svg")
+    .attr("class", "canvas")
+    .style("margin-left", "15px")
+    .style("width", "90%")
+    .style("height", height)
+    .style("border", "0.5px solid #eee");
+  
+  const triangles = svg.append("g").attr("class", "triangles");
+  const edges = svg.append("g").attr("class", "edges");
+  const vertices = svg.append("g").attr("class", "vertices");
+
+  // scale
+  container
+    .append("div")
+    .style("width", "15px")
+    .style("height", height)
+    .style("background", "#eee")
+    .style("position", "absolute")
+    .style("top", "0")
+    .style("bottom", "0")
+    .append("div")
+    .style("width", "100%")
+    .style("height", scale + "px")
+    .style("background", "steelblue");
+  container
+    .append("div")
+    .style("margin-left", "3px")
+    .style("width", height)
+    .style("display", "inline-block")
+    .style("text-align", "center")
+    .style("transform", "rotate(-90deg)")
+    .style("transform-origin", "top left")
+    .html(tex`\epsilon`.outerHTML);
+
+  drawRips(svg, sc.rips(V, scale, 2));
+
+  svg.on("click", (e) => {
+    const coord = d3.pointer(e);
+    V.push(coord);
+    drawRips(svg, sc.rips(V, scale, 2));
+  });
+  return container.node();
+}
+```
+
+
+```{ojs}
+import { slider } from "@jashkenas/inputs"
+sc = require("https://cdn.jsdelivr.net/npm/@tdajs/simplicial-complex@1.2.1/dist/min.js")
+```
+
+
+```{ojs}
+drawRips = function (svg, rips) {
+  if (rips.simplices[2]) {
+    svg.selectAll(".triangle")
+      .data(rips.simplices[2])
+      .join("path")
+      .attr("class", "triangle")
+      .attr("d", (d) => d3.line()(d.map((v) => V[v])))
+      .attr("fill", "lightgreen")
+      .attr("stroke", "none")
+      .attr("opacity", "0.5");
+  }
+  if (rips.simplices[1]) {
+    svg.selectAll(".edge")
+      .data(rips.simplices[1])
+      .join("path")
+      .attr("class", "edge")
+      .attr("d", (d) => d3.line()(d.map((v) => V[v])))
+      .attr("stroke", "red");
+  }
+
+  svg.selectAll(".vertex")
+    .data(V)
+    .join("circle")
+    .attr("class", "vertex")
+    .attr("class", "vertex")
+    .attr("cx", (d) => d[0])
+    .attr("cy", (d) => d[1])
+    .attr("r", "2px")
+    .on("mouseover", function () {
+      d3.select(this).attr("fill", "orange").attr("r", "5px");
+    })
+    .on("mouseout", function () {
+      d3.select(this).attr("fill", "black").attr("r", "2px");
+    });
+    return svg;
+}
+```
+
+
+## Hausmann's Theorem {.smaller}
+
+:::: {.columns}
+
+::: {.column width="70%"}
+
+**Convexity Radius**
+
+- the largest (sup) radius so that geodesic balls are convex.
+    
+    - for the circle, it is a quarter of the circumference
+
+    - denoted by $\rho(M)$ 
+
+    - $\rho(M)>0$ for a compact manifold
+
+:::
+
+::: {.column width="30%"}
+
+```{ojs}
+{
+  const svg = d3.create('svg').attr('viewBox', [-width/2, -600, width, 1200]);
+
+  svg
+    .append('circle')
+    .attr('cx', '0')
+    .attr('cy', '0')
+    .attr('r', 500)
+    .style('fill', 'none')
+    .style('stroke-width', 10)
+    .style('stroke', 'lightgray');
+
+    const arc = d3.arc()
+        .innerRadius(490)
+        .outerRadius(510)
+        .startAngle(-rad * Math.PI * 2)
+        .endAngle(rad * Math.PI * 2);
+
+    svg.append("path")
+        .attr("class", "arc")
+        .attr("d", arc)
+        .attr("fill", rad <= 0.25 ? "green" : "red");
+
+    svg.append('circle')
+        .attr('cx', 0)
+        .attr('cy', -500)
+        .attr('r', 20)
+        .style('fill', 'black')
+        
+    return svg.node();
+}
+viewof rad = Inputs.range([0, 0.5], {
+  step: 0.01,
+  value: 0,
+  label: ''
+})
+```
+
+:::
+
+::::
+
+
+. . .
+
+**Theorem** [@hausmann_1995]:
+For any $0<\beta<\rho(M)$, the Vietoris--Rips complex $\mathcal{R}_\beta(M)$ is homotopy equivalent to $M$.
+
+- vertex set is the ***entire*** manifold $M$
+- **Question:** what about the Vietoris--Rips complex of a dense subset $X\subset M$?
+
+
+## Latschev's Theorem
+
+[@latschev_2001]
+
+## Qualitative Latschev's Theorem
+
+
+## Jungs' Theorem
+
+### Classical 
+
+## Manifolds
+
+## Discussions
+- How to retain all the metric properties for the GMD?
+- Can the GMD be useful in supervised learning for classification?
+- Currently, NONE of the graph distances (GED, GGD, GMD) is stable with respect another. Can we develop a stable graph distance?
+
+
+## References
