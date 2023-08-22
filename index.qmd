@@ -237,25 +237,100 @@ For any $0<\beta<\rho(M)$, the Vietoris--Rips complex $\mathcal{R}_\beta(M)$ is 
 
 - vertex set is the ***entire*** manifold $M$
 - **Question:** what about the Vietoris--Rips complex of a dense subset $X\subset M$?
+    - more generally, for a sample with a small $d_{GH}(M,X)$.
+
+## Finite Reconstruction Problem {.smaller}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+**Gromov--Hausdorff Distance:**  
+
+- provides the noise model for our reconstruction problem
+- similarity measure between ***abstract*** metric spaces $(X,d_X)$ and $(Y,d_Y)$
+- Definition: $d_{GH(X,Y)}=\inf d_H^Z(f(X),g(Y))$
+    - inf over metric spaces $(Z,d_Z)$ and isometries $f:X\to Z$, $g:Y\to Z$
+
+:::
+
+::: {.column width="40%"}
+![](gh.png){fig-align="center" width="600"}
+:::
+
+:::
+
+. . . 
+
+**Latschev's Theorem** [@latschev_2001]:
+
+For every closed Riemannian manifold $M$, there exists a positive number $\epsilon_0$ such that for any $0<\beta\leq\epsilon_0$ there exists some $\delta>0$ such that for every metric space $X$ with Gromov--Hausdorff distance to $M$ less than $\delta$, the Vietoris--Rips complex $\mathcal R_\beta(X)$ is homotopy equivalent to $M$.
+
+## Quantitative Latschev's Theorem {.smaller}
+
+**Metric Graph Reconstruction** [---, -@Majhi2023]
+
+Let $(G,d_G)$ be a compact, path-connected metric graph, $(X,d_X)$ a metric space, and $\beta>0$ a number such that $$3d_{GH}(G,X)<\beta<3\rho(G)/4.$$ Then, $\mathcal R_\beta(X)\simeq G$.
+
+. . .
+
+**Riemannian Manifold Reconstruction** [---, -@MajhiLatschev]
+
+Let $(M,d_M)$ be a closed, connected Riemannian manifold. Let $(X,d_X)$ be a compact metric space and $\beta>0$ a number such that
+$$
+	\frac{1}{\zeta}d_{GH}(M,X)<\beta<\frac{1}{1+2\zeta}\min\left\{\rho(M),\frac{\pi}{4\sqrt{\kappa}}\right\}
+$$ for some $0<\zeta\leq1/14$. Then, $\mathcal R_\beta(X)\simeq M$.
+
+- $\kappa$ is an upper bound on the sectional curvatures of $M$
+- uses barycentric subdivision and Jung's theorem on manifolds
+
+## Jung's Theorem {.smaller}
+
+:::: {.columns}
+
+::: {.column width="80%"}
+
+For a compact set $A\subset\mathbb R^n$, there exists a unique **circumcenter**, and the **circumradius** $\mathfrak{R}(A)$ is at most
+$\sqrt{\frac{n}{2(n+1)}}$ times the diameter of $A$.
+
+:::
+
+::: {.column width="20%"}
+![](circumcircle.png){fig-align="center"}
+:::
+
+:::
+
+. . . 
+
+**Manifold:** [@Dekster1997]
+Let $M$ be a compact, connected, $n$--dimensional manifold. For any compact subset $A$ with $diam(A)<\min\{\rho(M),\pi/4\sqrt{\kappa}\}$, its circumcenter exists in $M$. Moreover, its diameter
+\begin{equation}\label{eqn:Jung}
+diam(A)\geq\begin{cases}
+\frac{2}{\sqrt{-\kappa}}\sinh^{-1}\left(\sqrt{\frac{n+1}{2n}}
+\sinh\left(\sqrt{-\kappa}\;\mathfrak{R}(A)\right)\right),&\text{ for }\kappa<0\\
+2\mathfrak{R}(A)\sqrt{\frac{n+1}{2n}},&\text{ for }\kappa=0 \\
+\frac{2}{\sqrt{\kappa}}\sin^{-1}\left(\sqrt{\frac{n+1}{2n}}
+\sin\left(\sqrt{\kappa}\;\mathfrak{R}(A)\right)\right),
+&\text{ for }\kappa>0\text{ and}\\&\mathfrak{R}(A)\in
+\left[0,\frac{\pi}{2\sqrt{\kappa}}\right]
+\end{cases}
+\end{equation}
 
 
-## Latschev's Theorem
 
-[@latschev_2001]
+## Sketch of Proof {full-screen=true}
 
-## Qualitative Latschev's Theorem
+<iframe width="100%" height="100%" data-external="1" src="https://miro.com/app/live-embed/uXjVMset0yw=/?moveToViewport=-669,-273,1081,630&embedId=545548756325" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
 
-
-## Jungs' Theorem
-
-### Classical 
-
-## Manifolds
 
 ## Discussions
-- How to retain all the metric properties for the GMD?
-- Can the GMD be useful in supervised learning for classification?
-- Currently, NONE of the graph distances (GED, GGD, GMD) is stable with respect another. Can we develop a stable graph distance?
+
+- Euclidean submanifold
+- Shadow
+- Reconstruction beyond manifolds
+    - $CAT(\kappa)$ spaces
+    - simplicial complexes embedded in $\mathbb R^d$
+    - (Ongoing with Rafal Komendaczyk, Tulane University)
 
 
 ## References
