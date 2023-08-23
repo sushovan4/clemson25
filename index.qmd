@@ -1,24 +1,23 @@
 ---
-title: "Demysifying Latschev's Theorem"
-subtitle: Vietoris--Rips complexes for manifold reconstruction
-author: "<b>Sush Majhi</b>, George Washington University"
+title: "Demystifying Latschev's Theorem"
+author: "<b>Sush Majhi</b><br><i>Data Science Program, George Washington University</i>"
 format: 
     revealjs:
         slide-number: true
         self-contained: true
         incremental: true
+        css: style.css
 bibliography: references.bib
 ---
 
 ## Today's Agenda
 - The problem of shape reconstruction
-- Different reconstruction paradigms
 - Vietoris--Rips complexes
 - Theorems of Hausmann and Latschev
-- Demistifying Lastchev's theorem
+- Demystifying Latschev's theorem
     - Jung's theorem on manifolds
-- Euclidean submanifold reconstruction
-- Question
+    - Sketch of proof (if time permits)
+- Questions
 
 ## The Problem of Shape Reconstruction {.smaller}
 
@@ -34,19 +33,19 @@ bibliography: references.bib
 
     - small Hausdorff proximity if $M$ is a Euclidean submanifold and $X\subset\mathbb R^d$
 
-    - for today, <span style="color:green">small Gromov--Hausdorff distance</span>
+    - for today, <span style="color:green">small Gromov--Hausdorff distance</span>.
 
 
 - **Goal:** Infer the topology of $M$ from $X$.
 
-    - Estimate only the betti numbers: number of connected components, cycles, voids, etc, of $M$.
+    - Estimate only the Betti numbers: number of connected components, cycles, voids, etc, of $M$.
 
     - for today, <span style="color:green">construct a topological space $\widetilde{M}$ from $X$ to retain the topology of $M$, i.e., $M\simeq\widetilde{M}$</span>.
 
 ## Vietoris--Rips Complex {.smaller}
   - a metric space $(X,d_X)$
   
-  - a scale $\beta>0$,
+  - a scale $\beta>0$ 
   
    - $\mathcal{R}_\beta(X)$ is an abstract simplicial complex such that
    
@@ -243,7 +242,7 @@ For any $0<\beta<\rho(M)$, the Vietoris--Rips complex $\mathcal{R}_\beta(M)$ is 
 
 :::: {.columns}
 
-::: {.column width="60%"}
+::: {.column width="70%"}
 **Gromov--Hausdorff Distance:**  
 
 - provides the noise model for our reconstruction problem
@@ -253,8 +252,8 @@ For any $0<\beta<\rho(M)$, the Vietoris--Rips complex $\mathcal{R}_\beta(M)$ is 
 
 :::
 
-::: {.column width="40%"}
-![](gh.png){fig-align="center" width="600"}
+::: {.column width="30%"}
+![](gh.png){fig-align="center" width="400"}
 :::
 
 :::
@@ -267,13 +266,13 @@ For every closed Riemannian manifold $M$, there exists a positive number $\epsil
 
 ## Quantitative Latschev's Theorem {.smaller}
 
-**Metric Graph Reconstruction** [---, -@Majhi2023]
+**Metric Graph Reconstruction** [@Majhi2023]
 
 Let $(G,d_G)$ be a compact, path-connected metric graph, $(X,d_X)$ a metric space, and $\beta>0$ a number such that $$3d_{GH}(G,X)<\beta<3\rho(G)/4.$$ Then, $\mathcal R_\beta(X)\simeq G$.
 
 . . .
 
-**Riemannian Manifold Reconstruction** [---, -@MajhiLatschev]
+**Riemannian Manifold Reconstruction** [@MajhiLatschev]
 
 Let $(M,d_M)$ be a closed, connected Riemannian manifold. Let $(X,d_X)$ be a compact metric space and $\beta>0$ a number such that
 $$
@@ -318,19 +317,17 @@ diam(A)\geq\begin{cases}
 
 
 
-## Sketch of Proof {full-screen=true}
-
-<iframe width="100%" height="100%" data-external="1" src="https://miro.com/app/live-embed/uXjVMset0yw=/?moveToViewport=-669,-273,1081,630&embedId=545548756325" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
+## {background-iframe="https://miro.com/app/live-embed/uXjVMset0yw=/?moveToViewport=-669,-273,1081,630&embedId=545548756325" background-interactive="true"}
 
 
 ## Discussions
 
-- Euclidean submanifold
-- Shadow
+- Euclidean submanifold [@MajhiLatschev]
+- Geometric reconstruction using Shadow Complexes
 - Reconstruction beyond manifolds
     - $CAT(\kappa)$ spaces
     - simplicial complexes embedded in $\mathbb R^d$
-    - (Ongoing with Rafal Komendaczyk, Tulane University)
+
 
 
 ## References
