@@ -48,7 +48,8 @@ bibliography: references.bib
   - a scale $\beta>0$ 
   
    - $\mathcal{R}_\beta(X)$ is an abstract simplicial complex such that
-        - each subset $A\subset X$ of size $k$ with diameter at most $\epsilon$ is a $(k-1)$-simplex.
+   
+        - each subset $A\subset X$ of size $k$ with diameter at most $\beta$ is a $(k-1)$-simplex.
 
 . . .
 
