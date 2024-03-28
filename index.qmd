@@ -258,11 +258,27 @@ For any $0<\beta<\rho(M)$, the Vietoris--Rips complex $\mathcal{R}_\beta(M)$ is 
 
 :::
 
-. . . 
+. . .
+
+See @HvsGH for more details on the relation between the Gromov--Hausdorff and Hausdorff distances.
+
+## Demystifying Latschev's Theorem {.smaller}
 
 **Latschev's Theorem** [@latschev_2001]:
 
 For every closed Riemannian manifold $M$, there exists a positive number $\epsilon_0$ such that for any $0<\beta\leq\epsilon_0$ there exists some $\delta>0$ such that for every metric space $X$ with Gromov--Hausdorff distance to $M$ less than $\delta$, the Vietoris--Rips complex $\mathcal R_\beta(X)$ is homotopy equivalent to $M$.
+
+. . .
+
+**Key points**:
+
+- The result is qualitative
+
+- the threshold $\epsilon_0=\epsilon_0(M)$ depends solely on the *geometry* of $M$. But the theorem did not say how!
+
+- $\delta=\delta(\beta)$ is a function (probably a fraction) of $\beta$.
+
+- Nonetheless, the result answers Hausmann's question!
 
 ## Quantitative Latschev's Theorem {.smaller}
 
@@ -272,6 +288,17 @@ Let $(G,d_G)$ be a compact, path-connected metric graph, $(X,d_X)$ a metric spac
 
 . . .
 
+**Key points**:
+
+- The result is quantitative
+
+- $\epsilon_0=3\rho(G)/4$
+
+- $\delta=\beta/3$
+
+
+## Quantitative Latschev's Theorem {.smaller}
+
 **Riemannian Manifold Reconstruction** [@MajhiLatschev]
 
 Let $(M,d_M)$ be a closed, connected Riemannian manifold. Let $(X,d_X)$ be a compact metric space and $\beta>0$ a number such that
@@ -279,8 +306,36 @@ $$
 	\frac{1}{\zeta}d_{GH}(M,X)<\beta<\frac{1}{1+2\zeta}\min\left\{\rho(M),\frac{\pi}{4\sqrt{\kappa}}\right\}
 $$ for some $0<\zeta\leq1/14$. Then, $\mathcal R_\beta(X)\simeq M$.
 
+. . .
+
+**Key points**:
+
 - $\kappa$ is an upper bound on the sectional curvatures of $M$
-- uses barycentric subdivision and Jung's theorem on manifolds
+
+- For $\zeta=\frac{1}{14}$:
+  - $\epsilon_0=\frac{7}{8}\min\left\{\rho(M),\frac{\pi}{4\sqrt{\kappa}}\right\}$
+
+  - $\delta=\frac{\beta}{14}$
+
+## Quantitative Latschev's Theorem {.smaller}
+
+**Euclidean Submanifold Reconstruction** [@MajhiLatschev]
+
+Let $M\subset\mathbb R^N$ be a closed, connected submanifold. Let $X\subset\mathbb R^N$ be a compact subset and $\beta>0$ a number such that
+$$
+	\frac{1}{\zeta}d_{H}(M,X)<\beta<\frac{3(1+2\zeta)(1-14\zeta)}{8(1-2\zeta)^2}\tau(M)
+$$ for some $0<\zeta<1/14$. Then, $\mathcal R_\beta(X)\simeq M$.
+
+. . .
+
+**Key points**:
+
+- $\tau(M)$ is the reach of $M$
+
+- For $\zeta=\frac{1}{28}$:
+  - $\epsilon_0=\frac{315}{1352}\tau(M)$
+
+  - $\delta=\frac{\beta}{28}$
 
 ## Jung's Theorem {.smaller}
 
@@ -316,18 +371,16 @@ diam(A)\geq\begin{cases}
 \end{equation}
 
 
-
-## {background-iframe="https://miro.com/app/live-embed/uXjVMset0yw=/?moveToViewport=-669,-273,1081,630&embedId=545548756325" background-interactive="true"}
-
-
 ## Discussions
+- Are the constants $\epsilon_0$ and $\delta$ optimal?
 
-- Euclidean submanifold [@MajhiLatschev]
-- Geometric reconstruction using Shadow Complexes
+- Extracting Reeb graphs from a Vietoris--Rips complex
+  - Y. Wang et al. @NIPS2011_3a077244
+
+- Geometric reconstruction using *Shadow Complexes*
+
 - Reconstruction beyond manifolds
     - $CAT(\kappa)$ spaces
     - simplicial complexes embedded in $\mathbb R^d$
-
-
 
 ## References
