@@ -1,6 +1,7 @@
 ---
 title: "Demystifying Latschev's Theorem"
-author: "<b>Sush Majhi</b><br><i>Data Science Program, George Washington University</i>"
+author: "<b>Sush Majhi</b><br><i>George Washington University, USA</i>"
+subtitle: SoCG 2024 
 format: 
     revealjs:
         slide-number: true
@@ -372,6 +373,9 @@ diam(A)\geq\begin{cases}
 
 
 ## Discussions
+
+@2406.04259
+
 - Are the constants $\epsilon_0$ and $\delta$ optimal?
 
 - Extracting Reeb graphs from a Vietoris--Rips complex
