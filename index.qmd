@@ -1,5 +1,5 @@
 ---
-title: "Demystifying Latschev's Theorem"
+title: "Demystifying Latschev's Theorem for Manifold Reconstruction"
 author: "<b>Sush Majhi</b><br><i>George Washington University, USA</i>"
 subtitle: SoCG 2024 
 format: 
@@ -17,7 +17,7 @@ bibliography: references.bib
 - Theorems of Hausmann and Latschev
 - Demystifying Latschev's theorem
     - Jung's theorem on manifolds
-    - Sketch of proof (if time permits)
+    - Simplicial subdivision
 - Questions
 
 ## The Problem of Shape Reconstruction {.smaller}
@@ -261,7 +261,7 @@ For any $0<\beta<\rho(M)$, the Vietoris--Rips complex $\mathcal{R}_\beta(M)$ is 
 
 . . .
 
-See @HvsGH for more details on the relation between the Gromov--Hausdorff and Hausdorff distances.
+See [@HvsGH] for more details on the relation between the Gromov--Hausdorff and Hausdorff distances.
 
 ## Demystifying Latschev's Theorem {.smaller}
 
@@ -338,38 +338,6 @@ $$ for some $0<\zeta<1/14$. Then, $\mathcal R_\beta(X)\simeq M$.
 
   - $\delta=\frac{\beta}{28}$
 
-## Jung's Theorem {.smaller}
-
-:::: {.columns}
-
-::: {.column width="80%"}
-
-For a compact set $A\subset\mathbb R^n$, there exists a unique **circumcenter**, and the **circumradius** $\mathfrak{R}(A)$ is at most
-$\sqrt{\frac{n}{2(n+1)}}$ times the diameter of $A$.
-
-:::
-
-::: {.column width="20%"}
-![](circumcircle.png){fig-align="center"}
-:::
-
-:::
-
-. . . 
-
-**Manifold:** [@Dekster1997]
-Let $M$ be a compact, connected, $n$--dimensional manifold. For any compact subset $A$ with $diam(A)<\min\{\rho(M),\pi/4\sqrt{\kappa}\}$, its circumcenter exists in $M$. Moreover, its diameter
-\begin{equation}\label{eqn:Jung}
-diam(A)\geq\begin{cases}
-\frac{2}{\sqrt{-\kappa}}\sinh^{-1}\left(\sqrt{\frac{n+1}{2n}}
-\sinh\left(\sqrt{-\kappa}\;\mathfrak{R}(A)\right)\right),&\text{ for }\kappa<0\\
-2\mathfrak{R}(A)\sqrt{\frac{n+1}{2n}},&\text{ for }\kappa=0 \\
-\frac{2}{\sqrt{\kappa}}\sin^{-1}\left(\sqrt{\frac{n+1}{2n}}
-\sin\left(\sqrt{\kappa}\;\mathfrak{R}(A)\right)\right),
-&\text{ for }\kappa>0\text{ and}\\&\mathfrak{R}(A)\in
-\left[0,\frac{\pi}{2\sqrt{\kappa}}\right]
-\end{cases}
-\end{equation}
 
 
 ## Discussions
