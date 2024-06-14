@@ -374,17 +374,15 @@ diam(A)\geq\begin{cases}
 
 ## Discussions
 
-@2406.04259
-
 - Are the constants $\epsilon_0$ and $\delta$ optimal?
 
-- Extracting Reeb graphs from a Vietoris--Rips complex
-  - Y. Wang et al. @NIPS2011_3a077244
+- For graphs, extracting Reeb graphs from a Vietoris--Rips complex to provide an **embedding**
+  - [@NIPS2011_3a077244], [@Chazal2015]
 
-- Geometric reconstruction using *Shadow Complexes*
+- For Euclidean shapes, **geometric reconstruction** using *Shadow Complexes*
 
 - Reconstruction beyond manifolds
     - $CAT(\kappa)$ spaces
-    - simplicial complexes embedded in $\mathbb R^d$
+    - Recent work [@2406.04259]
 
 ## References
