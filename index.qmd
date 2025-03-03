@@ -3,7 +3,7 @@ title: "<span class='pref'>Topological Stability and </span>Latschev-Type Recons
 title-slide-attributes: 
   data-background-image: "drawing.png"
   data-background-opacity: "0.3"
-subtitle: <green>58th Spring Topology and Dynamics Conference, 2025</green>
+subtitle: <green>The 58th Spring Topology and Dynamics Conference, 2025</green>
 author: "<b>Sushovan Majhi</b>, George Washington University"
 fig-cap-location: bottom
 format: 
@@ -20,25 +20,23 @@ editor:
 ---
 
 ## Today's Agenda
-- The topology of Vietoris--Rips Complexes
-- Hausmann's Curious Question
-- The Finite Reconstruction Problem
-- Latschev's Remarkable but Qualitative Answer
-- Quantitative Latschev's theorem
-  - Jung's theorem on manifolds
-  - Simplicial subdivision
-- Extension to $\mathrm{CAT}(\kappa) Spaces$
-- Questions
+- Motivation
+- <green>Hausmann</green>'s *Curious* Question
+- <green>Latschev</green>'s remarkable (*but* <red>qualitative</red>!) answer
+- *Finite* <green>reconstruction problem</green>
+- <green>Quantitative</green> Latschev's theorem
+    - abstract manifolds
+    - Euclidean submanifolds
+- Extension to $\mathrm{CAT}(\kappa)$ Spaces
+- <red>Questions</red>
 
-# The Vietoris--Rips Complexes {.smaller background-image="drawing.png" background-opacity="0.3"}
-
-## {.smaller}
+## The Vietoris--Rips Complexes {.smaller}
 
 - a metric space $(X,d_X)$
   
   - a scale $\beta>0$ 
   
-   - $R_\beta(X)$ is an abstract simplicial complex such that
+   - $\mathcal{R}_\beta(X)$ is an abstract simplicial complex such that
    
         - $X$ is the <green>vertex set</green>
         - each <green>subset</green> $A\subset X$ of $(k+1)$ points with <green>diameter</green> at most $\beta$ is a $k$-simplex.
@@ -92,13 +90,13 @@ V = [];
     .style("background", "steelblue");
   container
     .append("div")
-    .style("margin-left", "3px")
+    .style("margin-left", "12px")
     .style("width", height)
     .style("display", "inline-block")
     .style("text-align", "center")
     .style("transform", "rotate(-90deg)")
     .style("transform-origin", "top left")
-    .html(tex`\epsilon`.outerHTML);
+    .html(tex`\beta`.outerHTML);
 
   drawRips(svg, sc.rips(V, scale, 2));
 
@@ -128,7 +126,7 @@ drawRips = function (svg, rips) {
       .attr("d", (d) => d3.line()(d.map((v) => V[v])))
       .attr("fill", "lightgreen")
       .attr("stroke", "none")
-      .attr("opacity", "0.5");
+      .attr("opacity", "0.3");
   }
   if (rips.simplices[1]) {
     svg.selectAll(".edge")
@@ -136,7 +134,7 @@ drawRips = function (svg, rips) {
       .join("path")
       .attr("class", "edge")
       .attr("d", (d) => d3.line()(d.map((v) => V[v])))
-      .attr("stroke", "red");
+      .attr("stroke", "green").attr("stroke-width", "2");
   }
 
   svg.selectAll(".vertex")
@@ -144,45 +142,46 @@ drawRips = function (svg, rips) {
     .join("circle")
     .attr("class", "vertex")
     .attr("class", "vertex")
+    .attr("fill", "white")
     .attr("cx", (d) => d[0])
     .attr("cy", (d) => d[1])
     .attr("r", "2px")
     .on("mouseover", function () {
-      d3.select(this).attr("fill", "orange").attr("r", "5px");
+      d3.select(this).attr("fill", "green").attr("r", "10px");
     })
     .on("mouseout", function () {
-      d3.select(this).attr("fill", "black").attr("r", "2px");
+      d3.select(this).attr("fill", "white").attr("r", "2px");
     });
     return svg;
 }
 ```
 
 
-## The Topology of $\mathcal{R}_\beta(X)$
+## Motivation {background-image="drawing.png" background-opacity="0.2"}
 
-## Hausmann's Theorem {.smaller}
 
-**Theorem** [@hausmann_1995]:
-For any $0<\beta<\rho(M)$, the Vietoris--Rips complex $\mathcal{R}_\beta(M)$ is homotopy equivalent to $M$.
+- Understand the <green>topology</green> of $\mathcal{R}_\beta(X)$ 
+- When the homology of $\mathcal{R}_\beta(X)$ is <green>finitely</green> generated?
+- Alternative to the <green>Nerve Lemma</green> for Vietoris--Rips complexes
+- Implications to <green>Shape Reconstruction</green>
 
-- vertex set is the ***entire*** manifold $M$
-- **Question:** what about the Vietoris--Rips complex of a dense subset $X\subset M$?
-    - more generally, for a sample with a small $d_{GH}(M,X)$.
+## Hausmann's Theorem
 
-:::: {.columns}
+:::{.callout-tip appearance="minimal"}
+## @hausmann_1995
+For any closed Riemannian manifold $M$ and $0<\beta<\rho(M)$, the Vietoris--Rips complex $\mathcal{R}_\beta(M)$ is *homotopy equivalent* to $M$.
+:::
+
+. . . 
+
+::: {.columns}
 
 ::: {.column width="70%"}
 
-**Convexity Radius**
-
-- the largest (sup) radius so that geodesic balls are convex.
-    
-    - for the circle, it is a quarter of the circumference
-
-    - denoted by $\rho(M)$ 
-
-    - $\rho(M)>0$ for a compact manifold
-
+- vertex set is the <red>entire</red> manifold $M$
+- **Convexity Radius** $\rho(M)$ is the largest (sup) radius so that geodesic balls are convex.
+    - $\rho(S^1)=\frac{\pi}{2}$
+    - $\rho(M)>0$ for a <green>compact</green> manifold
 :::
 
 ::: {.column width="30%"}
@@ -215,7 +214,7 @@ For any $0<\beta<\rho(M)$, the Vietoris--Rips complex $\mathcal{R}_\beta(M)$ is 
         .attr('cx', 0)
         .attr('cy', -500)
         .attr('r', 20)
-        .style('fill', 'black')
+        .style('fill', 'green')
         
     return svg.node();
 }
@@ -228,10 +227,19 @@ viewof rad = Inputs.range([0, 0.5], {
 
 :::
 
-::::
+:::
 
+## Finite Reconstruction Problem
 
-## Finite Reconstruction Problem and Hausmann's Curious Question  {.smaller}
+:::{.callout-important appearance="minimal"}
+##  Hausmann's Curious Question
+What about the Vietoris--Rips complex of a dense subset $X\subset M$? More generally, for a sample with a small $d_{GH}(M,X)$.
+:::
+
+- The Rips alternative to Nerve Lemma
+- Manifold reconstruction from a dense subset
+
+## Hausdorff and Gromov--Hausdorff Distances  {.smaller}
 
 :::: {.columns}
 
@@ -255,35 +263,14 @@ viewof rad = Inputs.range([0, 0.5], {
 
 See [@HvsGH] for more details on the relation between the Gromov--Hausdorff and Hausdorff distances.
 
-## The Problem of Shape Reconstruction {.smaller}
 
-- **Shape:** A *Shape* is modeled as a metric space $(M,d_M)$.
+## Latschev's Remarkable Solution {.smaller}
 
-    - general compact set
-
-    - metric graph
-
-    - for today, <span style="color:green">$M$ is a closed Riemannian manifold</span>.
-
-- **Sample:** A *finite* metric space $(X,d_X)$ *close* to $M$.
-
-    - small Hausdorff proximity if $M$ is a Euclidean submanifold and $X\subset\mathbb R^d$
-
-    - for today, <span style="color:green">small Gromov--Hausdorff distance</span>.
-
-
-- **Goal:** Infer the topology of $M$ from $X$.
-
-    - Estimate only the Betti numbers: number of connected components, cycles, voids, etc, of $M$.
-
-    - for today, <span style="color:green">construct a topological space $\widetilde{M}$ from $X$ to retain the topology of $M$, i.e., $M\simeq\widetilde{M}$</span>.
-
-
-## Latschev's Theorem {.smaller}
-
-**Latschev's Theorem** [@latschev_2001]:
-
+::: {.callout-tip appearance="minimal"}
+## Latschev's Theorem [@latschev_2001]
 For every closed Riemannian manifold $M$, there exists a positive number $\epsilon_0$ such that for any $0<\beta\leq\epsilon_0$ there exists some $\delta>0$ such that for every metric space $X$ with Gromov--Hausdorff distance to $M$ less than $\delta$, the Vietoris--Rips complex $\mathcal R_\beta(X)$ is homotopy equivalent to $M$.
+:::
+
 
 . . .
 
