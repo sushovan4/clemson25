@@ -177,8 +177,8 @@ viewof btn = Inputs.button("clear", {
 
 ## Hausmann's Theorem {.smaller}
 
-:::{.callout-tip appearance="minimal"}
-## <u>@hausmann_1995</u>
+:::{.callout-tip icon="false"}
+## @hausmann_1995
 For any closed Riemannian manifold $M$ and $0<\beta<\rho(M)$, the Vietoris--Rips complex $\mathcal{R}_\beta(M)$ is *homotopy equivalent* to $M$.
 :::
 
@@ -241,8 +241,8 @@ viewof rad = Inputs.range([0, 0.5], {
 
 ## Finite Reconstruction Problem {.smaller}
 
-:::{.callout-important appearance="minimal"}
-##  <u>Hausmann's Curious Question</u>
+:::{.callout-important icon="false"}
+##  Hausmann's Curious Question
 What about the Vietoris--Rips complex of a <green>finite</green>, dense subset $S\subset M$? 
 :::
 
@@ -271,8 +271,8 @@ What about the Vietoris--Rips complex of a <green>finite</green>, dense subset $
 
 ## Latschev's Remarkable Solution {.smaller}
 
-::: {.callout-tip appearance="minimal"}
-## <u>@latschev_2001</u>
+::: {.callout-tip icon="false"}
+## @latschev_2001
 Every closed Riemannian manifold $M$ has an <green>$\epsilon_0>0$</green> such that for any $0<\beta\leq\epsilon_0$ there exists some <red>$\delta>0$</red> so that for any sample $S$:
 $$
 d_{GH}(S,M)\leq\delta\implies \mathcal R_\beta(S)\simeq M.
@@ -293,9 +293,8 @@ $$
 
 ## Quantitative Latschev's Theorem {.smaller}
 
-:::{.callout-tip appearance="minimal"}
-## <u>Metric Graph Reconstruction [@Majhi2023]</u>
-
+:::{.callout-tip icon="false"}
+## Metric Graph Reconstruction [@Majhi2023]
 Let $(G,d_G)$ be a compact, path-connected metric graph, $(S,d_S)$ a metric space, and $\beta>0$ a number such that $$3d_{GH}(G,S)<\beta<\frac{3}{4}\rho(G).$$ 
 Then, $\mathcal R_\beta(S)\simeq G$.
 
@@ -305,52 +304,52 @@ Then, $\mathcal R_\beta(S)\simeq G$.
 
 - The result is <green>quantitative</green>
 
-  - <green>$$\epsilon_0=\frac{3}{4}\rho(G)$$</green>
+  - <green>$\epsilon_0=\frac{3}{4}\rho(G)$</green>
 
-  - <red>$$\delta=\frac{1}{3}\beta$$</red>
+  - <red>$\delta=\frac{1}{3}\beta$</red>
 
 - The constants are not optimal!      
   - <green>Optimal</green> $\epsilon_0=\frac{2}{3}\rho(G)$.
 
 ## Quantitative Latschev's Theorem {.smaller}
 
-**Riemannian Manifold Reconstruction** [@MajhiLatschev]
+:::{.callout-tip icon="false"}
+## Riemannian Manifold Reconstruction [@MajhiLatschev]
 
-Let $(M,d_M)$ be a closed, connected Riemannian manifold. Let $(X,d_X)$ be a compact metric space and $\beta>0$ a number such that
+Let $M$ be a closed, connected Riemannian manifold. Let $(S,d_S)$ be a compact metric space and $\beta>0$ a number such that
 $$
-	\frac{1}{\zeta}d_{GH}(M,X)<\beta<\frac{1}{1+2\zeta}\min\left\{\rho(M),\frac{\pi}{4\sqrt{\kappa}}\right\}
-$$ for some $0<\zeta\leq1/14$. Then, $\mathcal R_\beta(X)\simeq M$.
+	\frac{1}{\xi}d_{GH}(M,S)<\beta<\frac{1}{1+2\xi}\min\left\{\rho(M),\frac{\pi}{4\sqrt{\kappa}}\right\}
+$$ 
+for some $0<\xi\leq1/14$. Then, $\mathcal R_\beta(S)\simeq M$.
 
-. . .
+:::
 
-**Key points**:
 
-- $\kappa$ is an upper bound on the sectional curvatures of $M$
+- $\kappa$ is an upper bound on the <green>sectional curvatures</green> of $M$
 
-- For $\zeta=\frac{1}{14}$:
-  - $\epsilon_0=\frac{7}{8}\min\left\{\rho(M),\frac{\pi}{4\sqrt{\kappa}}\right\}$
+- For $\xi=\frac{1}{14}$:
+  - <green>$\epsilon_0=\frac{7}{8}\min\left\{\rho(M),\frac{\pi}{4\sqrt{\kappa}}\right\}$</green>
 
-  - $\delta=\frac{\beta}{14}$
+  - <red>$\delta=\frac{\beta}{14}$</red>
 
 ## Quantitative Latschev's Theorem {.smaller}
 
-**Euclidean Submanifold Reconstruction** [@MajhiLatschev]
+:::{.callout-tip icon="false"}
+## Euclidean Submanifold Reconstruction [@MajhiLatschev]
 
-Let $M\subset\mathbb R^N$ be a closed, connected submanifold. Let $X\subset\mathbb R^N$ be a compact subset and $\beta>0$ a number such that
+Let $M\subset\mathbb R^N$ be a closed, connected submanifold. Let $S\subset\mathbb R^N$ be a compact subset and $\beta>0$ a number such that
 $$
-	\frac{1}{\zeta}d_{H}(M,X)<\beta<\frac{3(1+2\zeta)(1-14\zeta)}{8(1-2\zeta)^2}\tau(M)
-$$ for some $0<\zeta<1/14$. Then, $\mathcal R_\beta(X)\simeq M$.
+	\frac{1}{\xi}d_{H}(M,S)<\beta<\frac{3(1+2\xi)(1-14\xi)}{8(1-2\xi)^2}\tau(M)
+$$ for some $0<\xi<1/14$. Then, $\mathcal R_\beta(S)\simeq M$.
 
-. . .
-
-**Key points**:
+:::
 
 - $\tau(M)$ is the reach of $M$
 
-- For $\zeta=\frac{1}{28}$:
-  - $\epsilon_0=\frac{315}{1352}\tau(M)$
+- For $\xi=\frac{1}{28}$:
+  - <green>$\epsilon_0=\frac{315}{1352}\tau(M)$</green>
 
-  - $\delta=\frac{\beta}{28}$
+  - <red>$\delta=\frac{\beta}{28}$</red>
 
 
 ## Beyond Manifolds
