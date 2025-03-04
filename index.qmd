@@ -344,6 +344,9 @@ $$ for some $0<\xi<1/14$. Then, $\mathcal R_\beta(S)\simeq M$.
 
 :::
 
+:::{.columns}
+
+:::{.column width="40%"}
 - $\tau(M)$ is the reach of $M$
 
 - For $\xi=\frac{1}{28}$:
@@ -351,27 +354,34 @@ $$ for some $0<\xi<1/14$. Then, $\mathcal R_\beta(S)\simeq M$.
 
   - <red>$\delta=\frac{\beta}{28}$</red>
 
+:::
 
-## Beyond Manifolds
+
+:::{.column width="60%"}
+
+![](reach.svg){width="100%"}
+
+:::
+
+:::
+
+## Reconstruction Beyond Manifolds {.smaller}
+
 
 Define CAT spaces
 
 ## Lastchev's Theorem for Abstract CAT Spaces
 
-## Lastchev's Theorem for Euclidean CAT Spaces
 
-## Discussions
+## Future Directions
 
+- Hausmann's constant is not optimal
 - Are the constants $\epsilon_0$ and $\delta$ optimal?
 
 - For graphs, extracting Reeb graphs from a Vietoris--Rips complex to provide an **embedding**
   - [@NIPS2011_3a077244], [@Chazal2015]
 
 - For Euclidean shapes, **geometric reconstruction** using *Shadow Complexes*
-
-- Reconstruction beyond manifolds
-    - $CAT(\kappa)$ spaces
-    - Recent work [@2406.04259]
 
 
 ## References
