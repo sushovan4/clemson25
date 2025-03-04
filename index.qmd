@@ -6,6 +6,7 @@ title-slide-attributes:
 subtitle: <green>The 58th Spring Topology and Dynamics Conference, 2025</green>
 author: "<b>Sushovan Majhi</b>, George Washington University"
 fig-cap-location: bottom
+html-math-method: mathml
 format: 
     revealjs:
         theme: dark
@@ -25,8 +26,8 @@ editor:
 - <green>Latschev</green>'s remarkable (*but* <red>qualitative</red>!) answer
 - *Finite* <green>reconstruction problem</green>
 - <green>Quantitative</green> Latschev's theorem
-    - abstract manifolds
-    - Euclidean submanifolds
+    - *abstract* manifolds
+    - *Euclidean* submanifolds
 - Extension to $\mathrm{CAT}(\kappa)$ Spaces
 - <red>Questions</red>
 
@@ -161,9 +162,10 @@ drawRips = function (svg, rips) {
 
 
 - Understand the <green>topology</green> of $\mathcal{R}_\beta(X)$ 
-- When the homology of $\mathcal{R}_\beta(X)$ is <green>finitely</green> generated?
+- When is the homology of $\mathcal{R}_\beta(X)$ <green>finitely</green> generated?
 - Alternative to the <green>Nerve Lemma</green> for Vietoris--Rips complexes
-- Implications to <green>Shape Reconstruction</green>
+- Implications in <green>Shape Reconstruction</green>
+
 
 ## Hausmann's Theorem
 
