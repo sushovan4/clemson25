@@ -365,22 +365,31 @@ $$ for some $0<\xi<1/14$. Then, $\mathcal R_\beta(S)\simeq M$.
 
 :::
 
-## Reconstruction Beyond Manifolds {.smaller}
+## Quantitative Latschev's Theorem Beyond Manifolds {.smaller}
+
+- <red>Bad</red> spaces are ubiquitous in applications
+  - manifolds with boundary or not a topological manifold
+  - stratefied manifolds
+  - Euclidean subsets with vanishing reach (due to corners)
+
+- <red>Challenges</red> in extending Latschev's theorem
+  - defining <green>convexity radius</green> and <green>sectional curvatures</green> beyond closed Riemannian manifolds?
+  - extending <green>Jung's theorem</green>
+
+. . . 
+
+::::{.callout-tip icon="false" .nonincremental style="font-size: 0.8em"}
+## $\mathrm{CAT}(\kappa)$ Spaces
+*Length spaces* with <green>curvature</green> bounded (above) by $\kappa\in\mathbb{R}$ in the sense of Aleksandrov 
+
+-  Intuitively, triangles in a $\mathrm{CAT}(\kappa)$ space are "slimmer" than corresponding "model triangles" in a standard space of constant curvature $\kappa$.
+:::
 
 
-Define CAT spaces
-
-## Lastchev's Theorem for Abstract CAT Spaces
-
-
-## Future Directions
+## Remarks
 
 - Hausmann's constant is not optimal
-- Are the constants $\epsilon_0$ and $\delta$ optimal?
-
-- For graphs, extracting Reeb graphs from a Vietoris--Rips complex to provide an **embedding**
-  - [@NIPS2011_3a077244], [@Chazal2015]
-
+- Are the better constants <green>$\epsilon_0$</green> and <red>$\delta$</red> for the quantitative Latschev's theorem?
 - For Euclidean shapes, **geometric reconstruction** using *Shadow Complexes*
 
 
