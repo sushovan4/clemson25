@@ -243,11 +243,11 @@ viewof rad = Inputs.range([0, 0.5], {
 
 :::{.callout-important appearance="minimal"}
 ##  <u>Hausmann's Curious Question</u>
-What about the Vietoris--Rips complex of a <green>finite</green>, dense subset $X\subset M$? 
+What about the Vietoris--Rips complex of a <green>finite</green>, dense subset $S\subset M$? 
 :::
 
 - <green>Manifold reconstruction</green> from a dense sample
-- More generally, a metric space $(X,d_X)$ close to $M$ in the <red>Gromov-Hausdorff</red> distance.
+- More generally, a metric space $(S,d_S)$ close to $M$ in the <red>Gromov-Hausdorff</red> distance.
 
 . . . 
 
@@ -272,39 +272,45 @@ What about the Vietoris--Rips complex of a <green>finite</green>, dense subset $
 ## Latschev's Remarkable Solution {.smaller}
 
 ::: {.callout-tip appearance="minimal"}
-## Latschev's Theorem [@latschev_2001]
-For every closed Riemannian manifold $M$, there exists a positive number $\epsilon_0$ such that for any $0<\beta\leq\epsilon_0$ there exists some $\delta>0$ such that for every metric space $X$ with Gromov--Hausdorff distance to $M$ less than $\delta$, the Vietoris--Rips complex $\mathcal R_\beta(X)$ is homotopy equivalent to $M$.
+## <u>@latschev_2001</u>
+Every closed Riemannian manifold $M$ has an <green>$\epsilon_0>0$</green> such that for any $0<\beta\leq\epsilon_0$ there exists some <red>$\delta>0$</red> so that for any sample $S$:
+$$
+d_{GH}(S,M)\leq\delta\implies \mathcal R_\beta(S)\simeq M.
+$$
 :::
 
 
 . . .
 
-**Key points**:
+- the threshold <green>$\epsilon_0=\epsilon_0(M)$</green> depends solely on the *geometry* of $M$. But the theorem did not say how!
 
-- The result is qualitative
+- <red>$\delta=\delta(\beta)$</red> is a function (a fraction in practice) of $\beta$.
 
-- the threshold $\epsilon_0=\epsilon_0(M)$ depends solely on the *geometry* of $M$. But the theorem did not say how!
+- The result is <red>qualitative</red>
+    - it's unavoidable (uses Lebesgue's number lemma)
 
-- $\delta=\delta(\beta)$ is a function (probably a fraction) of $\beta$.
-
-- Nonetheless, the result answers Hausmann's question!
+- Nonetheless, the result provides a promising answer to Hausmann's question, and more!
 
 ## Quantitative Latschev's Theorem {.smaller}
 
-**Metric Graph Reconstruction** [@Majhi2023]
+:::{.callout-tip appearance="minimal"}
+## <u>Metric Graph Reconstruction [@Majhi2023]</u>
 
-Let $(G,d_G)$ be a compact, path-connected metric graph, $(X,d_X)$ a metric space, and $\beta>0$ a number such that $$3d_{GH}(G,X)<\beta<3\rho(G)/4.$$ Then, $\mathcal R_\beta(X)\simeq G$.
+Let $(G,d_G)$ be a compact, path-connected metric graph, $(S,d_S)$ a metric space, and $\beta>0$ a number such that $$3d_{GH}(G,S)<\beta<\frac{3}{4}\rho(G).$$ 
+Then, $\mathcal R_\beta(S)\simeq G$.
+
+:::
 
 . . .
 
-**Key points**:
+- The result is <green>quantitative</green>
 
-- The result is quantitative
+  - <green>$$\epsilon_0=\frac{3}{4}\rho(G)$$</green>
 
-- $\epsilon_0=3\rho(G)/4$
+  - <red>$$\delta=\frac{1}{3}\beta$$</red>
 
-- $\delta=\beta/3$
-
+- The constants are not optimal!      
+  - <green>Optimal</green> $\epsilon_0=\frac{2}{3}\rho(G)$.
 
 ## Quantitative Latschev's Theorem {.smaller}
 
