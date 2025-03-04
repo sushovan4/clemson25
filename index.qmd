@@ -22,7 +22,7 @@ editor:
 
 ## Today's Agenda
 - Motivation
-- <green>Hausmann</green>'s *Curious* Question
+- <green>Hausmann</green>'s *curious* question
 - <green>Latschev</green>'s remarkable (*but* <red>qualitative</red>!) answer
 - *Finite* <green>reconstruction problem</green>
 - <green>Quantitative</green> Latschev's theorem
@@ -33,36 +33,28 @@ editor:
 
 ## The Vietoris--Rips Complexes {.smaller}
 
+:::{.columns}
+
+:::{.column width="40%"}
 - a metric space $(X,d_X)$
   
-  - a scale $\beta>0$ 
+- a scale $\beta>0$ 
   
-   - $\mathcal{R}_\beta(X)$ is an abstract simplicial complex such that
+- $\mathcal{R}_\beta(X)$ is an abstract simplicial complex
    
-        - $X$ is the <green>vertex set</green>
-        - each <green>subset</green> $A\subset X$ of $(k+1)$ points with <green>diameter</green> at most $\beta$ is a $k$-simplex.
+  - $X$ is the <green>vertex set</green>
+  - each <green>subset</green> $A\subset X$ of $(k+1)$ points with <green>diameter</green> at most $\beta$ is a $k$-simplex.
+
+:::
 
 
-. . .
+:::{.column  width="60%"}
 
-```{ojs}
-//| panel: sidebar
-
-viewof scale = Inputs.range([0, 300], {
-  step: 1,
-  value: 0,
-  label: tex`\beta`
-})
-viewof btn = Inputs.button("clear", {
-  value: null,
-  reduce: () => { V.length = 0; viewof scale.value = 0;viewof scale.dispatchEvent(new CustomEvent("input")); }
-})
-```
 
 ```{ojs}
 V = [];
 {
-  const height = "300px";
+  const height = "500px";
   const container = d3.create("div").style("position", "relative");
   let svg = container
     .append("svg")
@@ -157,6 +149,22 @@ drawRips = function (svg, rips) {
 }
 ```
 
+```{ojs}
+viewof scale = Inputs.range([0, 300], {
+  step: 1,
+  value: 0,
+  label: tex`\beta`
+})
+viewof btn = Inputs.button("clear", {
+  value: null,
+  reduce: () => { V.length = 0; viewof scale.value = 0;viewof scale.dispatchEvent(new CustomEvent("input")); }
+})
+```
+
+:::
+
+:::
+
 
 ## Motivation {background-image="drawing.png" background-opacity="0.2"}
 
@@ -167,23 +175,23 @@ drawRips = function (svg, rips) {
 - Implications in <green>Shape Reconstruction</green>
 
 
-## Hausmann's Theorem
+## Hausmann's Theorem {.smaller}
 
 :::{.callout-tip appearance="minimal"}
-## @hausmann_1995
+## <u>@hausmann_1995</u>
 For any closed Riemannian manifold $M$ and $0<\beta<\rho(M)$, the Vietoris--Rips complex $\mathcal{R}_\beta(M)$ is *homotopy equivalent* to $M$.
 :::
 
-. . . 
 
 ::: {.columns}
 
 ::: {.column width="70%"}
-
-- vertex set is the <red>entire</red> manifold $M$
-- **Convexity Radius** $\rho(M)$ is the largest (sup) radius so that geodesic balls are convex.
+- <green>Convexity Radius</green> $\rho(M)$ is the largest (sup) radius so that <green>geodesic balls</green> are convex.
     - $\rho(S^1)=\frac{\pi}{2}$
     - $\rho(M)>0$ for a <green>compact</green> manifold
+- Hausmann constructed a homotopy equivalence $T:\mathcal{R}_{\beta}(M)\to M$
+- Since $M$ has finitely generated homology, so does $\mathcal{R}_{\beta}(M)$ 
+- vertex set is the <red>entire</red> manifold $M$!
 :::
 
 ::: {.column width="30%"}
@@ -231,24 +239,23 @@ viewof rad = Inputs.range([0, 0.5], {
 
 :::
 
-## Finite Reconstruction Problem
+## Finite Reconstruction Problem {.smaller}
 
 :::{.callout-important appearance="minimal"}
-##  Hausmann's Curious Question
-What about the Vietoris--Rips complex of a dense subset $X\subset M$? More generally, for a sample with a small $d_{GH}(M,X)$.
+##  <u>Hausmann's Curious Question</u>
+What about the Vietoris--Rips complex of a <green>finite</green>, dense subset $X\subset M$? 
 :::
 
-- The Rips alternative to Nerve Lemma
-- Manifold reconstruction from a dense subset
+- <green>Manifold reconstruction</green> from a dense sample
+- More generally, a metric space $(X,d_X)$ close to $M$ in the <red>Gromov-Hausdorff</red> distance.
 
-## Hausdorff and Gromov--Hausdorff Distances  {.smaller}
+. . . 
 
 :::: {.columns}
 
 ::: {.column width="70%"}
 **Gromov--Hausdorff Distance:**  
 
-- provides the noise model for our reconstruction problem
 - similarity measure between ***abstract*** metric spaces $(X,d_X)$ and $(Y,d_Y)$
 - Definition: $d_{GH(X,Y)}=\inf d_H^Z(f(X),g(Y))$
     - inf over metric spaces $(Z,d_Z)$ and isometries $f:X\to Z$, $g:Y\to Z$
@@ -260,10 +267,6 @@ What about the Vietoris--Rips complex of a dense subset $X\subset M$? More gener
 :::
 
 :::
-
-. . .
-
-See [@HvsGH] for more details on the relation between the Gromov--Hausdorff and Hausdorff distances.
 
 
 ## Latschev's Remarkable Solution {.smaller}
