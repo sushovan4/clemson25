@@ -4,7 +4,7 @@ title-slide-attributes:
   data-background-image: "drawing.png"
   data-background-opacity: "0.3"
 subtitle: <green>The 58th Spring Topology and Dynamics Conference, 2025</green>
-author: "<b>Sushovan Majhi</b>, George Washington University"
+author: "<b>Sushovan Majhi</b>, *George Washington University, DC*"
 fig-cap-location: bottom
 html-math-method: mathml
 format: 
@@ -21,7 +21,7 @@ editor:
 ---
 
 ## Today's Agenda
-- Motivation
+- Our motivation
 - <green>Hausmann</green>'s *curious* question
 - <green>Latschev</green>'s remarkable (*but* <red>qualitative</red>!) answer
 - *Finite* <green>reconstruction problem</green>
@@ -166,7 +166,7 @@ viewof btn = Inputs.button("clear", {
 :::
 
 
-## Motivation {background-image="drawing.png" background-opacity="0.2"}
+## Our Motivation {background-image="drawing.png" background-opacity="0.2"}
 
 
 - Understand the <green>topology</green> of $\mathcal{R}_\beta(X)$ 
@@ -186,7 +186,7 @@ For any closed Riemannian manifold $M$ and $0<\beta<\rho(M)$, the Vietoris--Rips
 ::: {.columns}
 
 ::: {.column width="70%"}
-- <green>Convexity Radius</green> $\rho(M)$ is the largest (sup) radius so that <green>geodesic balls</green> are convex.
+- <green>Convexity Radius</green>: $\rho(M)$ is the largest (sup) radius so that <green>geodesic balls</green> are convex.
     - $\rho(S^1)=\frac{\pi}{2}$
     - $\rho(M)>0$ for a <green>compact</green> manifold
 - Hausmann constructed a homotopy equivalence $T:\mathcal{R}_{\beta}(M)\to M$
@@ -218,13 +218,13 @@ For any closed Riemannian manifold $M$ and $0<\beta<\rho(M)$, the Vietoris--Rips
     svg.append("path")
         .attr("class", "arc")
         .attr("d", arc)
-        .attr("fill", rad <= 0.25 ? "green" : "red");
+        .attr("fill", rad <= 0.25 ? "#3be57f" : "rgb(226, 19, 19)");
 
     svg.append('circle')
         .attr('cx', 0)
         .attr('cy', -500)
         .attr('r', 20)
-        .style('fill', 'green')
+        .style('fill', '#3be57f')
         
     return svg.node();
 }
@@ -294,9 +294,9 @@ $$
 ## Quantitative Latschev's Theorem {.smaller}
 
 :::{.callout-tip icon="false"}
-## Metric Graph Reconstruction [@Majhi2023]
+## Metric Graph Reconstruction [*J. Appl. & Comp. Top., @Majhi2023*]
 Let $(G,d_G)$ be a compact, path-connected metric graph, $(S,d_S)$ a metric space, and $\beta>0$ a number such that $$3d_{GH}(G,S)<\beta<\frac{3}{4}\rho(G).$$ 
-Then, $\mathcal R_\beta(S)\simeq G$.
+Then, $\mathcal R_\beta(S)\simeq G$
 
 :::
 
@@ -314,7 +314,7 @@ Then, $\mathcal R_\beta(S)\simeq G$.
 ## Quantitative Latschev's Theorem {.smaller}
 
 :::{.callout-tip icon="false"}
-## Riemannian Manifold Reconstruction [@MajhiLatschev]
+## Riemannian Manifold Reconstruction [*SoCG'24, DCG, @MajhiLatschev*]
 
 Let $M$ be a closed, connected Riemannian manifold. Let $(S,d_S)$ be a compact metric space and $\beta>0$ a number such that
 $$
@@ -359,7 +359,7 @@ $$ for some $0<\xi<1/14$. Then, $\mathcal R_\beta(S)\simeq M$.
 
 :::{.column width="60%"}
 
-![](reach.svg){width="100%"}
+![Reach](reach.svg){width=100% cap-align="center"}
 
 :::
 
