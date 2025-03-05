@@ -359,7 +359,7 @@ $$ for some $0<\xi<1/14$. Then, $\mathcal R_\beta(S)\simeq M$.
 
 :::{.column width="60%"}
 
-![Reach](reach.svg){width=100% cap-align="center"}
+![Reach](reach.png){width=100% cap-align="center"}
 
 :::
 
