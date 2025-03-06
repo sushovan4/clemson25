@@ -390,7 +390,7 @@ $$ for some $0<\xi<1/14$. Then, $\mathcal R_\beta(S)\simeq M$.
 
 - Hausmann's constant is not optimal
 - Are the better constants <green>$\epsilon_0$</green> and <red>$\delta$</red> for the quantitative Latschev's theorem?
-- For Euclidean shapes, **geometric reconstruction** using *Shadow Complexes*
+- For Euclidean shapes, **geometric reconstruction** using *Shadow Complexes* (Rafal Komendarczyk & Atish Mitra)
 
 
 ## References
