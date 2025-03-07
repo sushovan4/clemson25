@@ -3,7 +3,7 @@ title: "<span class='pref'>Topological Stability and </span>Latschev-Type Recons
 title-slide-attributes: 
   data-background-image: "drawing.png"
   data-background-opacity: "0.3"
-subtitle: <green>The 58th Spring Topology and Dynamics Conference, 2025</green>
+subtitle: <green>AMS Sectional Meeting, Clemson University, 2025</green>
 author: "<b>Sushovan Majhi</b>, *George Washington University, DC*"
 fig-cap-location: bottom
 html-math-method: mathml
