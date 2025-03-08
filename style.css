@@ -12,7 +12,7 @@ green {
 }
 
 red {
-    color: rgb(226, 19, 19)!important; 
+    color: #bb473f!important; 
 }
 .subtitle {
     font-style: italic;
@@ -27,7 +27,7 @@ red {
     font-family: cursive;
 }
 #refs {
-    font-size: 0.9em!important;
+    font-size: 1em!important;
 }
 
 input {

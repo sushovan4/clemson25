@@ -218,7 +218,7 @@ For any closed Riemannian manifold $M$ and $0<\beta<\rho(M)$, the Vietoris--Rips
     svg.append("path")
         .attr("class", "arc")
         .attr("d", arc)
-        .attr("fill", rad <= 0.25 ? "#3be57f" : "rgb(226, 19, 19)");
+        .attr("fill", rad <= 0.25 ? "#3be57f" : "#bb473f");
 
     svg.append('circle')
         .attr('cx', 0)
@@ -379,18 +379,19 @@ $$ for some $0<\xi<1/14$. Then, $\mathcal R_\beta(S)\simeq M$.
 . . . 
 
 ::::{.callout-tip icon="false" .nonincremental style="font-size: 0.8em"}
-## $\mathrm{CAT}(\kappa)$ Spaces
+## Lastchev's Theorem for $\mathrm{CAT}(\kappa)$ Spaces [@2406.04259]
 *Length spaces* with <green>curvature</green> bounded (above) by $\kappa\in\mathbb{R}$ in the sense of Aleksandrov 
 
 -  Intuitively, triangles in a $\mathrm{CAT}(\kappa)$ space are "slimmer" than corresponding "model triangles" in a standard space of constant curvature $\kappa$.
 :::
 
 
-## Remarks
+## Future Directions {background-image="drawing.png" background-opacity="0.3"}
 
 - Hausmann's constant is not optimal
 - Are the better constants <green>$\epsilon_0$</green> and <red>$\delta$</red> for the quantitative Latschev's theorem?
-- For Euclidean shapes, **geometric reconstruction** using *Shadow Complexes* (Rafal Komendarczyk & Atish Mitra)
+- For Euclidean shapes, <green>geometric reconstruction</green> using *Shadow Complexes* 
+  - Rafal Komendarczyk & Atish Mitra
 
 
-## References
+## References {background-image="drawing.png" background-opacity="0.3"}
